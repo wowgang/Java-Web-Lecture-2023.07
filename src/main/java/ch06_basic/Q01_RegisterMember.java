@@ -27,16 +27,26 @@ public class Q01_RegisterMember extends HttpServlet {
 				+ "<head>"
 				+ "	<meta charset=\"UTF-8\">"
 				+ "	<title>Register Member</title>"
+				+ "   	<style>"
+				+ "		label {"
+				+ "			display: inline-block;"
+				+ "			width: 60px;"
+				+ "		}"
+				+ "	</style>"
 				+ "</head>"
 				+ "<body style=\"margin: 40px\">"
 				+ "	<h1>회원 등록</h1>"
 				+ "	<hr>"
 				+ "	<form action=\"/jw/ch06/register\" method=\"post\">"
-				+ "		uid: <input type=\"text\" name=\"uid\"><br>"
-				+ "		pwd: <input type=\"password\" name=\"pwd\"><br>"
-				+ "		uname: <input type=\"text\" name=\"uname\"><br>"
-				+ "		email: <input type=\"email\" name=\"email\"><br>"
-				+ "		<input type=\"submit\" value=\"확인\">"
+				+ "		<label for=\"uid\">uid: </label>"
+				+ "		<input type=\"text\" name=\"uid\"><br>"
+				+ "		<label for=\"pwd\">pwd: </label>"
+				+ "		<input type=\"password\" name=\"pwd\"><br>"
+				+ "		<label for=\"uname\">uname: </label>"
+				+ "		<input type=\"text\" name=\"uname\"><br>"
+				+ "		<label for=\"email\">email: </label>"
+				+ "		<input type=\"email\" name=\"email\"><br>"
+				+ "		<input type=\"submit\" value=\"등록\">"
 				+ "	</form>"
 				+ "</body>"
 				+ "</html>";
@@ -50,7 +60,7 @@ public class Q01_RegisterMember extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 입력 결과를 받아서 화면에 보여주는 코드
 		System.out.println("doPost() method called.");
-		request.setCharacterEncoding("utf-8"); // 한글 처리 필수
+		request.setCharacterEncoding("utf-8"); // 한글 처리 필수(post에서)
 		
 		String uid = request.getParameter("uid");
 		String pwd = request.getParameter("pwd");
@@ -73,8 +83,9 @@ public class Q01_RegisterMember extends HttpServlet {
 				+ "		<li>pwd: " + pwd + "</li>"
 				+ "		<li>uname: " + uname + "</li>"
 				+ "		<li>email: " + email + "</li>"
-				+ " </ul>";
-		html += "</body>"
+				+ " </ul>"
+				+ "<button onclick=\"location.href='/jw/ch06/register'\">재실행</button>"
+				+ "</body>"
 				+ "</html>";
 		response.setContentType("text/html; charset=utf-8");
 		PrintWriter out = response.getWriter();
