@@ -17,6 +17,7 @@ import org.mindrot.jbcrypt.BCrypt;
 /**
  * Servlet implementation class UserController
  */
+// @WebServlet("/ch09/users/*")로 사용할 수도 있음
 @WebServlet({ "/ch09/users/list", "/ch09/users/register", "/ch09/users/update", 
 	"/ch09/users/delete", "/ch09/users/login", "/ch09/users/logout" })
 public class UserController extends HttpServlet {

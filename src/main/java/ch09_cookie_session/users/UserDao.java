@@ -32,7 +32,7 @@ public class UserDao {
 	// uid가 없으면 user=null;
 	public User getUser(String uid) {
 		Connection conn = getConnection();
-		String sql = "select * from users where uid=?";
+		String sql = "select * from users where uid=? and isDeleted=0";
 		User user = null;
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);

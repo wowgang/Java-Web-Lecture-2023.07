@@ -23,7 +23,7 @@ public class ListViewer extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		HttpSession session = request.getSession();
-		String sessionUid = (String) session.getAttribute("uid");
+		String sessionUid = (String) session.getAttribute("uid");	// 로그인체크
 		
 		List<User> list = (List<User>) request.getAttribute("userList");	// controller에서 받은것
 		String html = "<!DOCTYPE html>"
